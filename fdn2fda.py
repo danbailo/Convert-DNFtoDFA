@@ -10,9 +10,7 @@ def depthSearchEpsilon(fdn,state):
 	while(stack!=[]):
 		aux=stack.pop()
 		ans.append(aux.name)
-		feed=aux.feed(Epsilon())
-		if feed==None:continue
-		stack+=feed
+		stack+=aux.feed(Epsilon())
 	ans.sort()
 	return ans
 def fdn2fda( fdn ):
@@ -94,12 +92,13 @@ initial = 'q1'
 final = ['q1']
 
 fdn=AFN(states, sigma, delta, initial, final)
-print(fdn.feed("a"))
+print(fdn.feed("baa"))
 fdn.reset()
 fda=fdn2fda(fdn)
+# print(fda.feed("baa"))
 
-while(True):
-	u=input()
-	print("AFN:%s AFD:%s"%(fdn.feed(u),fda.feed(u)))
-	fdn.reset()
-	fda.reset()
+# while(True):
+# 	u=input()
+# 	print("AFN:%s AFD:%s"%(fdn.feed(u),fda.feed(u)))
+# 	fdn.reset()
+# 	fda.reset()

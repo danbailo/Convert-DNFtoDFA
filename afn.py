@@ -17,6 +17,9 @@ class AFNState(AFDState):
 		self.name=afdstate.name
 		self.t=afdstate.t
 		self.flag=afdstate.flag
+	def feed(self,l):
+		ans=copy.copy(super().feed(l))
+		return [] if ans==None else ans
 	def __str__(self):
 		return "AFNState(%s)"%self.name
 	def addTransition(self,symbol,childlist):
@@ -56,31 +59,55 @@ class AFN(AFD):
 		self.threads=[]
 	def isLanguage(self):
 		ans=super().isLanguage()
+		
+		print("[isLanguage] %s"%(self.currstate))
+		
 		for t in self.threads:
+			if ans: t[0].currstate=None
 			t[1].join()
 			ans|=t[0].isLanguage()
 		return ans
+	def __createThreads(self,stateList,word):
+		if stateList==[]:return
+		
+		tn=threading.current_thread().getName()
+		tn="1" if tn=="MainThread" else tn
+
+		print("[%s branching ]%s"%(tn,stateList))
+
+		tb=self.threads
+		self.threads=[]
+		for state in stateList:
+			
+			obj=copy.deepcopy(self)
+			obj.currstate=state
+
+			t=threading.Thread(name=tn+" "+str(len(tb)+1),target=AFN.feed, args=(obj,word,))
+			t.start()
+			tb.append([obj,t])
+		self.threads=tb
 	def feed(self,word):
-		th=hex(threading.get_ident())
-		# print("[starting] %s: word:%s currstate:%s"%(th,word,self.currstate))
-		if self.currstate==None:return False
-		for i in range((len(word)*2)+1):
-			wi=int((i-1)/2)
-			l=Epsilon() if (i%2)==0 else word[wi]
+		tn=threading.current_thread().getName()
+		tn="1" if tn=="MainThread" else tn
+
+		print("[%s starting] word:%s currstate:%s"%(tn,word,self.currstate))
+		if self.currstate==None:
+			print("[%s dead]%s"%(tn,self.currstate))
+			return False
+		for wi,l in enumerate(word):
 			if l not in self.sigma:raise RuntimeError("word not in sigma")
-			nextState=copy.copy(self.currstate.feed(l))
-			if nextState in [None,[]]:
-				if l == Epsilon():continue
-				self.currstate=None
-				return False
+			nextState=self.currstate.feed(l)
+			if nextState == []:
+				nextState=self.currstate.feed(Epsilon())
+				if nextState==[]:
+					print("[%s \"dead\"]%s"%(tn,self.currstate))
+					return False 
+					# continue
+			else:
+				self.__createThreads(self.currstate.feed(Epsilon()),word)
+			print("[%s going to]  %s( %s )->%s"%(tn,self.currstate,l,nextState))
 			self.currstate=nextState.pop()
-			for remainingState in nextState:
-				obj=copy.deepcopy(self)
-				obj.currstate=remainingState
-				t=threading.Thread(target=AFN.feed, args=(obj,word[wi::],))
-				t.start()
-				self.threads.append([obj,t])
-			pass
+			self.__createThreads(nextState,word[wi::])
 		return self.isLanguage()
 
 

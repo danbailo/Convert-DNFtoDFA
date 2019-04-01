@@ -20,6 +20,11 @@ class AFDState:
 		except KeyError:return None
 	def __str__(self):
 		return "AFDState(%s)"%self.name
+	def __hash__(self):
+		return hash(self.__str__())
+	def __lt__(self,obj):
+		if type(obj)==type(self):return str(self)<str(obj)
+		raise TypeError()
 class AFD:
 	def __init__(self,q,sigma,delta,initial,finals):
 		self.delta=delta
