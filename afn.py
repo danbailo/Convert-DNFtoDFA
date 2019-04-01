@@ -60,10 +60,11 @@ class AFN(AFD):
 	def isLanguage(self):
 		ans=super().isLanguage()
 		
-		print("[isLanguage] %s"%(self.currstate))
-		
+		# print("[isLanguage] %s"%(self.currstate))
+		# for t in self.threads:t[1].start()
 		for t in self.threads:
 			if ans: t[0].currstate=None
+			t[1].start()
 			t[1].join()
 			ans|=t[0].isLanguage()
 		return ans
@@ -73,7 +74,7 @@ class AFN(AFD):
 		tn=threading.current_thread().getName()
 		tn="1" if tn=="MainThread" else tn
 
-		print("[%s branching ]%s"%(tn,stateList))
+		# print("[%s branching ]%s"%(tn,stateList))
 
 		tb=self.threads
 		self.threads=[]
@@ -83,31 +84,27 @@ class AFN(AFD):
 			obj.currstate=state
 
 			t=threading.Thread(name=tn+" "+str(len(tb)+1),target=AFN.feed, args=(obj,word,))
-			t.start()
+			# t.start()
 			tb.append([obj,t])
 		self.threads=tb
 	def feed(self,word):
 		tn=threading.current_thread().getName()
 		tn="1" if tn=="MainThread" else tn
 
-		print("[%s starting] word:%s currstate:%s"%(tn,word,self.currstate))
+		# print("[%s starting] word:%s currstate:%s"%(tn,word,self.currstate))
 		if self.currstate==None:
-			print("[%s dead]%s"%(tn,self.currstate))
+			# print("[%s dead]%s"%(tn,self.currstate))
 			return False
 		for wi,l in enumerate(word):
 			if l not in self.sigma:raise RuntimeError("word not in sigma")
-			nextState=self.currstate.feed(l)
-			if nextState == []:
-				nextState=self.currstate.feed(Epsilon())
-				if nextState==[]:
-					print("[%s \"dead\"]%s"%(tn,self.currstate))
-					return False 
-					# continue
-			else:
-				self.__createThreads(self.currstate.feed(Epsilon()),word)
-			print("[%s going to]  %s( %s )->%s"%(tn,self.currstate,l,nextState))
-			self.currstate=nextState.pop()
-			self.__createThreads(nextState,word[wi::])
+			fl=self.currstate.feed(l)
+			self.__createThreads(self.currstate.feed(Epsilon()),word)
+			if fl == []:
+				# print("[%s \"dead\"]%s"%(tn,self.currstate))
+				return False 
+			# print("[%s going to]  %s( %s )->%s"%(tn,self.currstate,l,fl))
+			self.currstate=fl[0]
+			self.__createThreads(fl[1::],word[wi::])
 		return self.isLanguage()
 
 

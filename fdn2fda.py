@@ -63,6 +63,8 @@ def fdn2fda( fdn ):
 	#limpar, converter tudo para str
 	for i in range(len(new_states_name)):
 		new_states_name[i]=str(new_states_name[i])
+	for i in range(len(new_final_names)):
+		new_final_names[i]=str(new_final_names[i])
 	for i in range(len(new_delta)):
 		for j in range(len(new_delta[i])):
 			elem=new_delta[i][j]
@@ -83,7 +85,7 @@ def fdn2fda( fdn ):
 	
 states = ['q1','q2','q3']
 sigma = [Epsilon(),'a','b']
-delta = [[],[],[]]
+delta =    [[],   [],            []]
 delta[0] = [['q3'],None,        ['q2']]
 delta[1] = [None,['q2','q3'], ['q3']]
 delta[2] = [None ,['q1']       , None]
@@ -92,13 +94,11 @@ initial = 'q1'
 final = ['q1']
 
 fdn=AFN(states, sigma, delta, initial, final)
-print(fdn.feed("baa"))
-fdn.reset()
 fda=fdn2fda(fdn)
 # print(fda.feed("baa"))
 
-# while(True):
-# 	u=input()
-# 	print("AFN:%s AFD:%s"%(fdn.feed(u),fda.feed(u)))
-# 	fdn.reset()
-# 	fda.reset()
+while(True):
+	u=input()
+	print("AFN:%s AFD:%s"%(fdn.feed(u),fda.feed(u)))
+	fdn.reset()
+	fda.reset()

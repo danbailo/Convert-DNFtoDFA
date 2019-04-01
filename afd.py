@@ -13,7 +13,8 @@ class AFDState:
 	def __repr__(self):
 		return self.__str__()
 	def addTransition(self,symbol,child):
-		if type(child)!=AFDState:raise RuntimeError("invalid child argument")
+		if type(child)!=AFDState:raise TypeError("invalid child argument")
+		if(type(symbol)!=str):raise TypeError("invalid symbol argument")
 		self.t[symbol]=child
 	def feed(self,symbol):
 		try:return self.t[symbol]
