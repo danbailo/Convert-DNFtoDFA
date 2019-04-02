@@ -55,7 +55,9 @@ class AFN(AFD):
 	def reset(self):
 		if type(self.initial)==AFDState:return
 		self.currstate=self.initial
-		for t in self.threads:t[1].join()
+		for t in self.threads:
+			try:t[1].join()
+			except Exception:pass
 		self.threads=[]
 	def isLanguage(self):
 		ans=super().isLanguage()
