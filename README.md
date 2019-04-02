@@ -6,7 +6,9 @@
 Basta executar <code>python3 fdn2fda.py [fdn.txt]</code>
 o arquivo fdn.txt deve seguir o seguinte formato
 por exemplo, para o seguinte automato
+
 <image src="fdn.png"></image>
+
 o fdn.txt terá de ser:
 
     'q1','q2','q3'
