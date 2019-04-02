@@ -2,8 +2,11 @@
 
 ### Pré-requisitos
 * python3
+### Observações
+* Considerar os colchetes '[]' como sendo o símbolo para representar um conjunto, visto que este é representado com chaves '{}'.
+* Por exemplo: Seguindo a observação acima, o conjunto vazio será representado por []
 ### Executar
-Basta executar <code>python3 main.py nome_do_arquivo.txt</code><br>
+Basta executar <code>$ python3 main.py nome_do_arquivo.txt</code><br>
 Onde o arquivo "nome_do_arquivo.txt" deve seguir o seguinte formato para o autômato representado
 pelo diagrama de transições a seguir:
 
@@ -25,7 +28,7 @@ Onde a<br>
 <b>Sexta linha: </b> Indica o estado inicial<br>
 <b>Sétima linha: </b> Indica os estados finais<br>
 
-Nesta pasta contém dois automatos no formato apresentado acima. Um deles representa e é o exemplo do diagrama mostrado acima. Ao executar <code>python3 main.py automato1.txt</code><br>
+Nesta pasta contém dois automatos no formato apresentado acima. Um deles representa e é o exemplo do diagrama mostrado acima. Ao executar <code>$ python3 main.py automato1.txt</code><br>
 A saída do programa será:
 
 
