@@ -9,7 +9,7 @@ pelo diagrama de transições a seguir:
 
 <image src="afn.png"></image>
 
-o fdn.txt terá de ser:
+o nome_do_arquivo.txt terá de seguir o seguinte formato:
 
     'q1','q2','q3'
     ab
@@ -18,12 +18,12 @@ o fdn.txt terá de ser:
     [] ,['q1']       , []
     'q1'
     'q1'
-Onde:<br>
-<b>Primeira linha: </b>indica o nome dos estados<br>
-<b>Segunda linha: </b>indica o alfabeto<br>
-<b>Terceira, quarta e quinta linha: </b>indicando a matriz delta considerando a primeira coluna como a transição após a leitura da palavra vazia<br>
-<b>Sexta linha: </b> indica o estado inicial<br>
-<b>Sétima linha: </b> indica os estados finais<br>
+Onde a<br>
+<b>Primeira linha: </b>Indica o nome dos estados<br>
+<b>Segunda linha: </b>Indica o alfabeto<br>
+<b>Terceira, quarta e quinta linha: </b>Indicando a matriz delta considerando a primeira coluna como a transição após a leitura da palavra vazia<br>
+<b>Sexta linha: </b> Indica o estado inicial<br>
+<b>Sétima linha: </b> Indica os estados finais<br>
 
 A saída do programa para essa entrada será:
 
