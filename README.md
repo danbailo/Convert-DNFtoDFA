@@ -18,11 +18,12 @@ o fdn.txt terá de ser:
     [] ,['q1']       , []
     'q1'
     'q1'
-onde a primeira linha indica o nome dos estados<br>
-a segunda indica o alfabeto<br>
-logo depois irá vir 3 linhas indicando a matriz delta considerando a primeira coluna como a a transição após a leitura da palavra vazia<br>
-a sexta linha indica o estado inicial<br>
-e a ultima linha indica os estados finais<br>
+Onde:<br>
+<b>Primeira linha: </b>indica o nome dos estados<br>
+<b>Segunda linha: </b>indica o alfabeto<br>
+<b>Terceira, quarta e quinta linha: </b>indicando a matriz delta considerando a primeira coluna como a a transição após a leitura da palavra vazia<br>
+<b>Sexta linha: </b> indica o estado inicial<br>
+<b>Sétima linha: </b> indica os estados finais<br>
 
 a saida do programa para essa entrada será:
 
