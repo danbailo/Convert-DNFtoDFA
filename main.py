@@ -114,16 +114,16 @@ if len(argv)<1:
 fdn=readAfnFromFile(argv[1])
 
 fda=fdn2fda(fdn)
-print("estados:")
+print("\nEstados:")
 print([q.name for q in fda.q])
-print("sigma:")
+print("\nSigma:")
 print(fda.sigma)
-print("delta:")
+print("\nDelta:")
 for q in fda.q:
 	print([qq.name for qq in q.t.values()])
-print("inicial:")
+print("\nEstado inicial:")
 print(fda.initial.name)
-print("finais")
+print("\nEstados finais:")
 finals=[]
 for q in fda.q:
 	if "f" in q.flag:
