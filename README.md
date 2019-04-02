@@ -3,7 +3,7 @@
 ### Pré-requisitos
 * python3
 ### Executar
-Basta executar <code>python3 main.py [fdn.txt]</code>
+Basta executar <code>python3 main.py fdn.txt</code>
 o arquivo fdn.txt deve seguir o seguinte formato
 por exemplo, para o seguinte automato
 
