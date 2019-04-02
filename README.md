@@ -20,7 +20,7 @@ o fdn.txt terá de ser:
     'q1'
 onde a primeira linha indica o nome dos estados
 a segunda indica o alfabeto
-logo depois irá vir 3 linhas indicando a matriz delta
+logo depois irá vir 3 linhas indicando a matriz delta considerando a primeira coluna como a a transição após a leitura da palavra vazia
 a sexta linha indica o estado inicial
 e a ultima linha indica os estados finais
 
