@@ -25,7 +25,7 @@ Onde a<br>
 <b>Primeira linha: </b>Indica o nome dos estados<br>
 <b>Segunda linha: </b>Indica o alfabeto<br>
 <b>Terceira, quarta e quinta linha: </b>Indicando a matriz delta considerando a primeira coluna como a transição após a leitura da palavra vazia<br>
-<b>Obs: Considerando que este autômato possui três estados, a matriz terá tres linhas, logo, as duas últimas linhas sempre serão estado inicial e estado final, respectivamente</b>
+<b>Obs:</b> Considerando que este autômato possui três estados, a matriz terá tres linhas, logo, as duas últimas linhas sempre serão estado inicial e estado final, respectivamente.<br>
 <b>Sexta linha: </b> Indica o estado inicial<br>
 <b>Sétima linha: </b> Indica os estados finais<br>
 
