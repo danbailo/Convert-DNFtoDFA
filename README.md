@@ -3,9 +3,9 @@
 ### Pré-requisitos
 * python3
 ### Executar
-Basta executar <code>python3 main.py fdn.txt</code>
-o arquivo fdn.txt deve seguir o seguinte formato
-por exemplo, para o seguinte automato
+Basta executar <code>python3 main.py nome_do_arquivo.txt</code><br>
+Onde o arquivo "nome_do_arquivo.txt" deve seguir o seguinte formato para o autômato representado
+pelo diagrama de transições a seguir:
 
 <image src="afn.png"></image>
 
