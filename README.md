@@ -25,7 +25,8 @@ Onde a<br>
 <b>Sexta linha: </b> Indica o estado inicial<br>
 <b>Sétima linha: </b> Indica os estados finais<br>
 
-A saída do programa para essa entrada será:
+Nesta pasta contém dois automatos no formato apresentado acima. Um deles representa e é o exemplo do diagrama mostrado acima. Ao executar <code>python3 main.py automato1.txt</code><br>
+A saída do programa será:
 
 
 	Estados:
