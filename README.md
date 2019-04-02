@@ -3,11 +3,11 @@
 ### Pré-requisitos
 * python3
 ### Executar
-Basta executar <code>python3 fdn2fda.py [fdn.txt]</code>
+Basta executar <code>python3 main.py [fdn.txt]</code>
 o arquivo fdn.txt deve seguir o seguinte formato
 por exemplo, para o seguinte automato
 
-<image src="fdn.png"></image>
+<image src="afn.png"></image>
 
 o fdn.txt terá de ser:
 
@@ -27,20 +27,25 @@ Onde:<br>
 
 A saída do programa para essa entrada será:
 
-    estados:
-    ['[]', "['q1']", "['q2']", "['q3']", "['q1', 'q2']", "['q1', 'q3']", "['q2', 'q3']", "['q1', 'q2', 'q3']"]
-    sigma:
-    ['a', 'b']
-    delta:
-    ['[]', '[]']
-    ["['q2']", '[]']
-    ["['q3']", "['q2', 'q3']"]
-    ['[]', "['q1', 'q3']"]
-    ["['q2', 'q3']", "['q2', 'q3']"]
-    ["['q2']", "['q1', 'q3']"]
-    ["['q3']", "['q1', 'q2', 'q3']"]
-    ["['q2', 'q3']", "['q1', 'q2', 'q3']"]
-    inicial:
-    ['q1', 'q3']
-    finais
-    ["['q1']", "['q1', 'q2']", "['q1', 'q3']", "['q1', 'q2', 'q3']"]
+
+	Estados:
+	['[]', "['q1']", "['q2']", "['q3']", "['q1', 'q2']", "['q1', 'q3']", "['q2', 'q3']", "['q1', 'q2', 'q3']"]
+
+	Sigma:
+	['a', 'b']
+
+	Delta:
+	['[]', '[]']
+	['[]', "['q2']"]
+	["['q2', 'q3']", "['q3']"]
+	["['q1', 'q3']", '[]']
+	["['q2', 'q3']", "['q2', 'q3']"]
+	["['q1', 'q3']", "['q2']"]
+	["['q1', 'q2', 'q3']", "['q3']"]
+	["['q1', 'q2', 'q3']", "['q2', 'q3']"]
+
+	Estado inicial:
+	['q1', 'q3']
+
+	Estados finais:
+	["['q1']", "['q1', 'q2']", "['q1', 'q3']", "['q1', 'q2', 'q3']"]
