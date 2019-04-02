@@ -29,9 +29,7 @@ Onde a<br>
 <b>Sexta linha: </b> Indica o estado inicial<br>
 <b>Sétima linha: </b> Indica os estados finais<br>
 
-Nesta pasta contém dois automatos no formato apresentado acima.
-[Automato 1](automato1.txt)<br/>
-[Automato 2](automato1.txt)<br/>
+Nesta pasta contém dois automatos([Automato 1](automato1.txt) e [Automato 2](automato1.txt)) no formato apresentado acima.
 O [Automato 1](automato1.txt) é o exemplo do diagrama mostrado acima. Ao executar <code>$ python3 main.py automato1.txt</code><br>
 A saída do programa será:
 
