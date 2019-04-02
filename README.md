@@ -25,10 +25,14 @@ Onde a<br>
 <b>Primeira linha: </b>Indica o nome dos estados<br>
 <b>Segunda linha: </b>Indica o alfabeto<br>
 <b>Terceira, quarta e quinta linha: </b>Indicando a matriz delta considerando a primeira coluna como a transição após a leitura da palavra vazia<br>
+<b>Obs: Considerando que este autômato possui três estados, a matriz terá tres linhas, logo, as duas últimas linhas sempre serão estado inicial e estado final, respectivamente</b>
 <b>Sexta linha: </b> Indica o estado inicial<br>
 <b>Sétima linha: </b> Indica os estados finais<br>
 
-Nesta pasta contém dois automatos no formato apresentado acima. Um deles representa e é o exemplo do diagrama mostrado acima. Ao executar <code>$ python3 main.py automato1.txt</code><br>
+Nesta pasta contém dois automatos no formato apresentado acima.
+[Automato 1](automato1.txt)<br/>
+[Automato 2](automato1.txt)<br/>
+O [Automato 1](automato1.txt) é o exemplo do diagrama mostrado acima. Ao executar <code>$ python3 main.py automato1.txt</code><br>
 A saída do programa será:
 
 
