@@ -3,8 +3,8 @@
 ### Pré-requisitos
 * python3
 ### Observações
-* Considerar os colchetes '[]' como sendo o símbolo para representar um conjunto, visto que este é representado com chaves '{}'.
-* Por exemplo: Seguindo a observação acima, o conjunto vazio será representado por []
+* Considerar os colchetes '[ ]' como sendo o símbolo para representar um conjunto, visto que este é representado com chaves '{ }'.
+* Por exemplo: Seguindo a observação acima, o conjunto vazio será representado por [ ] .
 ### Executar
 Basta executar <code>$ python3 main.py nome_do_arquivo.txt</code><br>
 Onde o arquivo "nome_do_arquivo.txt" deve seguir o seguinte formato para o autômato representado
